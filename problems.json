@@ -1,0 +1,616 @@
+{
+  "version": "2026-11-19",
+  "notes": "Dipole Moment Workbench problem library. Each problem: id, name, formula, smiles (Lewis structure as SMILES, all non-zero formal charges explicit), type (inorganic | organic), level (1-3), mu (experimental gas-phase dipole, D; 0 for molecules with no net dipole), note (optional, shown after Step 3). Bond-moment table: key = two element symbols in alphabetical order joined by - = or # ; moment in debye; neg = the delta-minus atom; src = where the number comes from; est = true means a placeholder estimate (no experimental bond moment available).",
+  "bondMoments": {
+    "H-N": {
+      "m": 1.31,
+      "neg": "N",
+      "src": "Smyth-type bond-moment table"
+    },
+    "H-O": {
+      "m": 1.53,
+      "neg": "O",
+      "src": "Smyth-type bond-moment table"
+    },
+    "Cl-H": {
+      "m": 1.09,
+      "neg": "Cl",
+      "src": "HCl molecule (NIST CCCBDB)"
+    },
+    "C-N": {
+      "m": 0.22,
+      "neg": "N",
+      "src": "Smyth-type bond-moment table"
+    },
+    "C#N": {
+      "m": 3.6,
+      "neg": "N",
+      "src": "Smyth-type bond-moment table"
+    },
+    "C-O": {
+      "m": 0.86,
+      "neg": "O",
+      "src": "Smyth-type bond-moment table"
+    },
+    "C=O": {
+      "m": 2.4,
+      "neg": "O",
+      "src": "Smyth-type bond-moment table"
+    },
+    "C-F": {
+      "m": 1.51,
+      "neg": "F",
+      "src": "Smyth-type bond-moment table"
+    },
+    "C-Cl": {
+      "m": 1.56,
+      "neg": "Cl",
+      "src": "Smyth-type bond-moment table"
+    },
+    "Cl-F": {
+      "m": 0.88,
+      "neg": "F",
+      "src": "ClF molecule (NIST CCCBDB)"
+    },
+    "Br-F": {
+      "m": 1.42,
+      "neg": "F",
+      "src": "BrF molecule (NIST CCCBDB)"
+    },
+    "O=S": {
+      "m": 1.61,
+      "neg": "O",
+      "src": "from SO2 (1.63 D, 119 degrees)"
+    },
+    "B-Cl": {
+      "m": 1.1,
+      "neg": "Cl",
+      "src": "placeholder estimate",
+      "est": true
+    },
+    "Cl-Si": {
+      "m": 1.3,
+      "neg": "Cl",
+      "src": "placeholder estimate",
+      "est": true
+    },
+    "Cl-P": {
+      "m": 1.0,
+      "neg": "Cl",
+      "src": "placeholder estimate",
+      "est": true
+    },
+    "Cl-S": {
+      "m": 0.6,
+      "neg": "Cl",
+      "src": "placeholder estimate",
+      "est": true
+    },
+    "F-N": {
+      "m": 0.9,
+      "neg": "F",
+      "src": "placeholder estimate",
+      "est": true
+    },
+    "F-O": {
+      "m": 0.5,
+      "neg": "F",
+      "src": "placeholder estimate",
+      "est": true
+    },
+    "F-S": {
+      "m": 1.4,
+      "neg": "F",
+      "src": "placeholder estimate",
+      "est": true
+    },
+    "F-Xe": {
+      "m": 1.4,
+      "neg": "F",
+      "src": "placeholder estimate",
+      "est": true
+    }
+  },
+  "problems": [
+    {
+      "id": "h2o",
+      "name": "water",
+      "formula": "H2O",
+      "smiles": "O",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 1.857,
+      "note": "The bent shape keeps the two O–H bond dipoles from cancelling."
+    },
+    {
+      "id": "nh3",
+      "name": "ammonia",
+      "formula": "NH3",
+      "smiles": "N",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 1.476,
+      "note": "The three N–H bond dipoles all tilt toward N, so they add up along the molecule's axis."
+    },
+    {
+      "id": "hcl",
+      "name": "hydrogen chloride",
+      "formula": "HCl",
+      "smiles": "Cl",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 1.093,
+      "note": "With only one bond, the bond dipole is the molecular dipole."
+    },
+    {
+      "id": "co2",
+      "name": "carbon dioxide",
+      "formula": "CO2",
+      "smiles": "O=C=O",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 0,
+      "note": "Two polar C=O bonds point in exactly opposite directions and cancel."
+    },
+    {
+      "id": "ccl4",
+      "name": "carbon tetrachloride",
+      "formula": "CCl4",
+      "smiles": "ClC(Cl)(Cl)Cl",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 0,
+      "note": "Four identical polar bonds arranged tetrahedrally cancel."
+    },
+    {
+      "id": "cf4",
+      "name": "carbon tetrafluoride",
+      "formula": "CF4",
+      "smiles": "FC(F)(F)F",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 0,
+      "note": "Very polar C–F bonds, but the tetrahedral shape makes them cancel."
+    },
+    {
+      "id": "bcl3",
+      "name": "boron trichloride",
+      "formula": "BCl3",
+      "smiles": "ClB(Cl)Cl",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 0,
+      "note": "Three B–Cl dipoles 120° apart in a plane cancel."
+    },
+    {
+      "id": "sicl4",
+      "name": "silicon tetrachloride",
+      "formula": "SiCl4",
+      "smiles": "Cl[Si](Cl)(Cl)Cl",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 0,
+      "note": "Tetrahedral, like CCl4: the bond dipoles cancel."
+    },
+    {
+      "id": "sih4",
+      "name": "silane",
+      "formula": "SiH4",
+      "smiles": "[SiH4]",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 0,
+      "note": "The Si–H bonds are nonpolar, and the shape is symmetric too."
+    },
+    {
+      "id": "hcn",
+      "name": "hydrogen cyanide",
+      "formula": "HCN",
+      "smiles": "C#N",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 2.985,
+      "note": "Linear, but the two ends are different: the C≡N dipole is not cancelled."
+    },
+    {
+      "id": "cs2",
+      "name": "carbon disulfide",
+      "formula": "CS2",
+      "smiles": "S=C=S",
+      "type": "inorganic",
+      "level": 1,
+      "mu": 0,
+      "note": "The C=S bonds are nonpolar, and the linear shape is symmetric."
+    },
+    {
+      "id": "so2",
+      "name": "sulfur dioxide",
+      "formula": "SO2",
+      "smiles": "O=S=O",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 1.633,
+      "note": "The lone pair on S bends the molecule, so the S=O dipoles add instead of cancelling."
+    },
+    {
+      "id": "so3",
+      "name": "sulfur trioxide",
+      "formula": "SO3",
+      "smiles": "O=S(=O)=O",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 0,
+      "note": "Trigonal planar with three equal S=O bonds: they cancel."
+    },
+    {
+      "id": "pcl3",
+      "name": "phosphorus trichloride",
+      "formula": "PCl3",
+      "smiles": "ClP(Cl)Cl",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 0.78,
+      "note": "The lone pair on P makes the molecule pyramidal, so the P–Cl dipoles don't cancel."
+    },
+    {
+      "id": "pcl5",
+      "name": "phosphorus pentachloride",
+      "formula": "PCl5",
+      "smiles": "ClP(Cl)(Cl)(Cl)Cl",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 0,
+      "note": "Trigonal bipyramidal: the axial pair and the equatorial three each cancel."
+    },
+    {
+      "id": "nf3",
+      "name": "nitrogen trifluoride",
+      "formula": "NF3",
+      "smiles": "FN(F)F",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 0.235,
+      "note": "Pyramidal like NH3, so it is polar. The dipole is small because the lone pair on N works against the N–F bond dipoles."
+    },
+    {
+      "id": "of2",
+      "name": "oxygen difluoride",
+      "formula": "OF2",
+      "smiles": "FOF",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 0.297,
+      "note": "Bent like water, so the O–F dipoles don't cancel."
+    },
+    {
+      "id": "scl2",
+      "name": "sulfur dichloride",
+      "formula": "SCl2",
+      "smiles": "ClSCl",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 0.36,
+      "note": "Bent: the two S–Cl dipoles add."
+    },
+    {
+      "id": "sf6",
+      "name": "sulfur hexafluoride",
+      "formula": "SF6",
+      "smiles": "FS(F)(F)(F)(F)F",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 0,
+      "note": "Octahedral: every S–F dipole has a partner pointing the opposite way."
+    },
+    {
+      "id": "xef2",
+      "name": "xenon difluoride",
+      "formula": "XeF2",
+      "smiles": "F[Xe]F",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 0,
+      "note": "Three lone pairs sit around the middle; the two F atoms are opposite each other, so the dipoles cancel."
+    },
+    {
+      "id": "xef4",
+      "name": "xenon tetrafluoride",
+      "formula": "XeF4",
+      "smiles": "F[Xe](F)(F)F",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 0,
+      "note": "Square planar: the four Xe–F dipoles cancel in pairs."
+    },
+    {
+      "id": "cocl2",
+      "name": "phosgene",
+      "formula": "COCl2",
+      "smiles": "O=C(Cl)Cl",
+      "type": "inorganic",
+      "level": 2,
+      "mu": 1.17,
+      "note": "Trigonal planar, but with two kinds of bonds, the dipoles don't cancel."
+    },
+    {
+      "id": "socl2",
+      "name": "thionyl chloride",
+      "formula": "SOCl2",
+      "smiles": "O=S(Cl)Cl",
+      "type": "inorganic",
+      "level": 3,
+      "mu": 1.45,
+      "note": "The lone pair on S makes the molecule pyramidal, and the bonds are not all the same."
+    },
+    {
+      "id": "sf4",
+      "name": "sulfur tetrafluoride",
+      "formula": "SF4",
+      "smiles": "FS(F)(F)F",
+      "type": "inorganic",
+      "level": 3,
+      "mu": 0.632,
+      "note": "Seesaw: the two axial S–F dipoles cancel, but the two equatorial ones add."
+    },
+    {
+      "id": "clf3",
+      "name": "chlorine trifluoride",
+      "formula": "ClF3",
+      "smiles": "FCl(F)F",
+      "type": "inorganic",
+      "level": 3,
+      "mu": 0.6,
+      "note": "T-shaped: the two axial Cl–F dipoles cancel, leaving the equatorial one."
+    },
+    {
+      "id": "brf5",
+      "name": "bromine pentafluoride",
+      "formula": "BrF5",
+      "smiles": "FBr(F)(F)(F)F",
+      "type": "inorganic",
+      "level": 3,
+      "mu": 1.51,
+      "note": "Square pyramidal: the four basal Br–F dipoles cancel in the plane, leaving the axial one."
+    },
+    {
+      "id": "ch4",
+      "name": "methane",
+      "formula": "CH4",
+      "smiles": "C",
+      "type": "organic",
+      "level": 1,
+      "mu": 0,
+      "note": "C–H bonds are nonpolar, and the tetrahedral shape is symmetric."
+    },
+    {
+      "id": "ethane",
+      "name": "ethane",
+      "formula": "C2H6",
+      "smiles": "CC",
+      "type": "organic",
+      "level": 1,
+      "mu": 0,
+      "note": "Only C–C and C–H bonds: a hydrocarbon is nonpolar."
+    },
+    {
+      "id": "ethylene",
+      "name": "ethylene (ethene)",
+      "formula": "C2H4",
+      "smiles": "C=C",
+      "type": "organic",
+      "level": 1,
+      "mu": 0,
+      "note": "Only nonpolar bonds."
+    },
+    {
+      "id": "acetylene",
+      "name": "acetylene (ethyne)",
+      "formula": "C2H2",
+      "smiles": "C#C",
+      "type": "organic",
+      "level": 1,
+      "mu": 0,
+      "note": "Only nonpolar bonds, in a straight line."
+    },
+    {
+      "id": "ch3cl",
+      "name": "chloromethane",
+      "formula": "CH3Cl",
+      "smiles": "CCl",
+      "type": "organic",
+      "level": 1,
+      "mu": 1.87,
+      "note": "One polar C–Cl bond with nothing to cancel it."
+    },
+    {
+      "id": "ch3f",
+      "name": "fluoromethane",
+      "formula": "CH3F",
+      "smiles": "CF",
+      "type": "organic",
+      "level": 1,
+      "mu": 1.847,
+      "note": "One polar C–F bond with nothing to cancel it."
+    },
+    {
+      "id": "h2co",
+      "name": "formaldehyde",
+      "formula": "CH2O",
+      "smiles": "C=O",
+      "type": "organic",
+      "level": 1,
+      "mu": 2.332,
+      "note": "The C=O dipole is large and nothing cancels it."
+    },
+    {
+      "id": "methanol",
+      "name": "methanol",
+      "formula": "CH3OH",
+      "smiles": "CO",
+      "type": "organic",
+      "level": 1,
+      "mu": 1.7,
+      "note": "C–O and O–H dipoles at a bent oxygen add together."
+    },
+    {
+      "id": "ch2cl2",
+      "name": "dichloromethane",
+      "formula": "CH2Cl2",
+      "smiles": "ClCCl",
+      "type": "organic",
+      "level": 2,
+      "mu": 1.6,
+      "note": "Two C–Cl dipoles in a tetrahedron point partly the same way, so they don't cancel."
+    },
+    {
+      "id": "chcl3",
+      "name": "chloroform",
+      "formula": "CHCl3",
+      "smiles": "ClC(Cl)Cl",
+      "type": "organic",
+      "level": 2,
+      "mu": 1.04,
+      "note": "Three C–Cl dipoles partly cancel, leaving a net dipole toward the chlorines."
+    },
+    {
+      "id": "ethanol",
+      "name": "ethanol",
+      "formula": "C2H5OH",
+      "smiles": "CCO",
+      "type": "organic",
+      "level": 2,
+      "mu": 1.69,
+      "note": "The polar C–O–H end makes the molecule polar."
+    },
+    {
+      "id": "dme",
+      "name": "dimethyl ether",
+      "formula": "CH3OCH3",
+      "smiles": "COC",
+      "type": "organic",
+      "level": 2,
+      "mu": 1.3,
+      "note": "The C–O–C angle is bent, so the two C–O dipoles add."
+    },
+    {
+      "id": "ch3nh2",
+      "name": "methylamine",
+      "formula": "CH3NH2",
+      "smiles": "CN",
+      "type": "organic",
+      "level": 2,
+      "mu": 1.31,
+      "note": "Pyramidal nitrogen: the N–H and C–N dipoles add."
+    },
+    {
+      "id": "ch3cn",
+      "name": "acetonitrile",
+      "formula": "CH3CN",
+      "smiles": "CC#N",
+      "type": "organic",
+      "level": 2,
+      "mu": 3.92,
+      "note": "The C≡N bond dipole is one of the largest; nothing cancels it."
+    },
+    {
+      "id": "acetald",
+      "name": "acetaldehyde",
+      "formula": "CH3CHO",
+      "smiles": "CC=O",
+      "type": "organic",
+      "level": 2,
+      "mu": 2.75,
+      "note": "The C=O dipole dominates."
+    },
+    {
+      "id": "acetone",
+      "name": "acetone",
+      "formula": "CH3COCH3",
+      "smiles": "CC(C)=O",
+      "type": "organic",
+      "level": 2,
+      "mu": 2.88,
+      "note": "The C=O dipole dominates; the two methyl groups are nonpolar."
+    },
+    {
+      "id": "formic",
+      "name": "formic acid",
+      "formula": "HCOOH",
+      "smiles": "OC=O",
+      "type": "organic",
+      "level": 3,
+      "mu": 1.41,
+      "note": "Several polar bonds pointing in different directions partly cancel."
+    },
+    {
+      "id": "acetic",
+      "name": "acetic acid",
+      "formula": "CH3COOH",
+      "smiles": "CC(=O)O",
+      "type": "organic",
+      "level": 3,
+      "mu": 1.7,
+      "note": "The polar COOH group makes the molecule polar."
+    },
+    {
+      "id": "cisdce",
+      "name": "cis-1,2-dichloroethylene",
+      "formula": "C2H2Cl2 (cis)",
+      "smiles": "Cl/C=C\\Cl",
+      "type": "organic",
+      "level": 3,
+      "mu": 1.9,
+      "note": "Both chlorines are on the same side, so the C–Cl dipoles add."
+    },
+    {
+      "id": "transdce",
+      "name": "trans-1,2-dichloroethylene",
+      "formula": "C2H2Cl2 (trans)",
+      "smiles": "Cl/C=C/Cl",
+      "type": "organic",
+      "level": 3,
+      "mu": 0,
+      "note": "Same bonds as the cis isomer, but the chlorines are on opposite sides: the dipoles cancel."
+    },
+    {
+      "id": "dce11",
+      "name": "1,1-dichloroethylene",
+      "formula": "CH2=CCl2",
+      "smiles": "C=C(Cl)Cl",
+      "type": "organic",
+      "level": 3,
+      "mu": 1.34,
+      "note": "Both chlorines on one carbon: their dipoles add."
+    },
+    {
+      "id": "benzene",
+      "name": "benzene",
+      "formula": "C6H6",
+      "smiles": "C1=CC=CC=C1",
+      "type": "organic",
+      "level": 3,
+      "mu": 0,
+      "note": "Only nonpolar bonds, in a flat symmetric ring."
+    },
+    {
+      "id": "clbenz",
+      "name": "chlorobenzene",
+      "formula": "C6H5Cl",
+      "smiles": "ClC1=CC=CC=C1",
+      "type": "organic",
+      "level": 3,
+      "mu": 1.78,
+      "note": "One polar C–Cl bond on the ring, with nothing to cancel it."
+    },
+    {
+      "id": "pdcb",
+      "name": "1,4-dichlorobenzene",
+      "formula": "C6H4Cl2 (para)",
+      "smiles": "ClC1=CC=C(Cl)C=C1",
+      "type": "organic",
+      "level": 3,
+      "mu": 0,
+      "note": "The two C–Cl dipoles are on opposite sides of the ring and cancel."
+    }
+  ]
+}
